@@ -1,0 +1,48 @@
+// exercício 1
+public class Ex1 {
+    public static void main(String[] args) {
+        // usando for
+        for (int i = 10; i <= 25; i++) {
+            System.out.println(i);
+        }
+
+        //usando while
+        int j = 10;
+        while (j <= 25) {
+            System.out.println(j);
+            j++;
+        }
+
+      //usando do while
+        int k = 10;
+        do {
+            System.out.println(k);
+            k++;
+        } while (k <= 25);
+    }
+}
+// exercício 2
+public class Ex2 {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 15; i++) {
+            if (i % 2 == 0) {
+                System.out.println("**");
+            } else {
+                System.out.println("*"); 
+            }
+        }
+    }
+}
+//Exercício 3
+public class Ex3 {
+    public static void main(String[] args) {
+        int soma = 0;
+        int numero = 1; // Começa em 1
+        
+        while (soma < 100) {
+            System.out.println(numero);
+            soma += numero; 
+            numero += 2;   
+        }
+    }
+}
