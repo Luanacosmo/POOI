@@ -1,0 +1,45 @@
+//EXERCÍCIO 1
+public class Aviao {
+    String fabricante, modelo;
+    int qtdeAssentos;
+
+    public void ligar(){
+        System.out.println("ligar aviao " + fabricante + " " + modelo + "que possuí " + qtdeAssentos + " assentos");
+    }
+}
+public class ExemploAviao{
+    public static void main (String[] args){
+        Aviao aviao1 =  new Aviao();
+        aviao1.fabricante = "Boening";
+        aviao1.modelo = "777";
+        aviao1.qtdeAssentos = 200;
+        aviao1.ligar();
+
+        Aviao aviao2 =  new Aviao();
+        aviao2.fabricante = "Boening";
+        aviao2.modelo = "707";
+        aviao2.qtdeAssentos = 150;
+        aviao2.ligar();
+    }
+}
+//EXERCÍCIO 2
+public class Pessoa {
+    String nome, telefone;
+
+    public void exibe(){
+        System.out.println("nome: " + nome + " " + "telefone: " + telefone);
+    }
+}
+public class Dados{
+    public static void main (String[] args ){
+        Pessoa pessoa1 = new Pessoa();
+        pessoa1.nome = "Luana";
+        pessoa1.telefone = "42998607808";
+        pessoa1.exibe();
+    }
+}
+// EXERCÍCIO 3
+
+   
+    
+
