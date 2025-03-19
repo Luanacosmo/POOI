@@ -1,0 +1,87 @@
+EXERCÍCO 1
+public class Turma {
+    private String curso, disciplina;
+
+    public String getCurso(){
+        return curso;
+    }
+
+    public String getDisciplina(){
+        return disciplina;
+    }
+
+    public void setCurso(String curso1){
+        curso = curso1;
+    }
+
+    public void setDisciplina(String disciplina1){
+        disciplina = disciplina1;
+    }
+
+    public void exibeDados(){
+        System.out.println("Curso: " + curso);
+        System.out.println("Disciplina: " + disciplina);
+    }
+
+    }
+public class TurmaApp {
+    public static void main(String[] args) {
+        Turma turma1 = new Turma();
+        turma1.setCurso("Ciência da Computação");
+        turma1.setDisciplina("POOI");
+
+        Turma turma2 = new Turma();
+        turma2.setCurso("MAtematica Computacional");
+        turma2.setDisciplina("POOI");
+
+        System.out.println("curso: " + turma1.getCurso());
+        System.out.println("disciplina: " + turma1.getDisciplina());
+
+        System.out.println("curso: " + turma2.getCurso());
+        System.out.println("disciplina: " + turma2.getDisciplina());
+    }
+}
+EXERCÍCIO 2
+public class Livro {
+    private String titulo, autor;
+
+    public String getTitulo(){
+        return titulo;
+    }
+
+    public String getAutor(){
+        return autor;
+    }
+
+    public void setTitulo(String titulo1){
+        titulo = titulo1;
+    }
+
+    public void setAutor(String autor1){
+        autor = autor1;
+    }
+
+    public void exibeDados(){
+        System.out.println("Título: " + titulo);
+        System.out.println("Autor: " + autor);
+    }
+
+  }
+public class LivroApp {
+    public static void main(String[] args) {
+        Livro livro1 = new Livro();
+        livro1.setTitulo("Ciência da Computação");
+        livro1.setAutor("POOI");
+
+        Livro livro2 = new Livro();
+        livro2.setTitulo("Ciência da Computação");
+        livro2.setAutor("POOI");
+        
+        System.out.println("curso: " + livro1.getTitulo());
+        System.out.println("disciplina: " + livro1.getAutor());
+
+        System.out.println("curso: " + livro2.getTitulo());
+        System.out.println("disciplina: " + livro2.getAutor());
+    }
+}
+EXERCÍCIO 3
