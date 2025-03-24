@@ -39,7 +39,38 @@ public class Dados{
     }
 }
 // EXERCÍCIO 3
+class Universidade {
+    String nome, cidade, estado;
 
+    public void exibeDados() {
+        System.out.println("Universidade: " + nome + ", Cidade: " + cidade + ", Estado: " + estado);
+    }
+}
+class Aluno {
+    String nome, curso;
+
+    public void exibeDados() {
+        System.out.println("Aluno: " + nome + ", Curso: " + curso);
+    }
+}
+public class Teste {
+    public static void main(String[] args) {
+        // Criando uma instância da classe Universidade
+        Universidade universidade1 = new Universidade();
+        universidade1.nome = "Universidade Federal de Minas Gerais";
+        universidade1.cidade = "Belo Horizonte";
+        universidade1.estado = "Minas Gerais";
+
+        // Criando uma instância da classe Aluno
+        Aluno aluno1 = new Aluno();
+        aluno1.nome = "João Silva";
+        aluno1.curso = "Ciência da Computação";
+
+        // Exibindo os dados
+        universidade1.exibeDados();
+        aluno1.exibeDados();
+    }
+}
    
     
 
