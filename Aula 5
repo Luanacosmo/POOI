@@ -1,0 +1,40 @@
+//EXERCÍCIO 1 
+public class Livro{
+    private String titulo, autor;
+    private static int ContadorLivros = 0;
+
+    public Livro(){
+        titulo = "Desconhecido";
+        autor = " Anônimo";
+        ContadorLivros++;
+    }
+    public Livro(String titulo, String autor){
+        this.titulo = titulo;
+        this.autor = autor;
+        ContadorLivros++;
+    }
+    public String getTitulo(){
+        return titulo;
+    }
+    public String getAutor(){
+        return autor;
+    }
+    public static int getContadorLivros(){
+        return ContadorLivros;
+    }
+}
+public class TesteLivro{
+    public static void main(String[] args) {
+        Livro livro1 = new Livro();
+        System.out.println("Livro 1");
+        System.out.println("Titulo: " + livro1.getTitulo());
+        System.out.println("Autor: " + livro1.getAutor());
+        System.out.println("Número de livros: " + Livro.getContadorLivros());
+
+        Livro livro2 = new Livro("O Alienista", "Machado de assis");
+        System.out.println("Livro 2");
+        System.out.println("Titulo: " + livro2.getTitulo());
+        System.out.println("Autor: " + livro2.getAutor());
+        System.out.println("Número de livros: " + Livro.getContadorLivros());
+    }
+}
