@@ -108,7 +108,6 @@ public class Conta {
         saldo += quantia;
     }
 
-    // Método debitar
     public void debitar(double quantia) {
         if (quantia > saldo) {
             System.out.println("Quantia de débito excedeu o saldo da conta.");
@@ -117,7 +116,7 @@ public class Conta {
         }
     }
 }
-import java.util.Scanner;
+
 
 public class UsaConta {
     public static void main(String[] args) {
@@ -125,35 +124,26 @@ public class UsaConta {
         Conta conta1 = new Conta(1000.00);
         Conta conta2 = new Conta(150.00);
 
-        // Exibe o saldo inicial de cada objeto
         System.out.printf("Saldo da Conta1: R$ %.2f\n", conta1.getSaldo());
         System.out.printf("Saldo da Conta2: R$ %.2f\n", conta2.getSaldo());
 
-        // Solicita o valor de retirada da conta1
         System.out.print("Digite o valor de retirada da conta1: ");
         double qtdeRetirada1 = scanner.nextDouble();
 
-        // Apresenta a quantidade retirada
         System.out.printf("Subtraindo %.2f do saldo da conta1\n\n", qtdeRetirada1);
 
-        // Chama o método debitar da conta1
         conta1.debitar(qtdeRetirada1);
 
-        // Exibe os saldos após a retirada
         System.out.printf("Saldo da Conta1: R$ %.2f\n", conta1.getSaldo());
         System.out.printf("Saldo da Conta2: R$ %.2f\n", conta2.getSaldo());
 
-        // Solicita o valor de retirada da conta2
         System.out.print("Digite o valor de retirada da conta2: ");
         double qtdeRetirada2 = scanner.nextDouble();
 
-        // Apresenta a quantidade retirada
         System.out.printf("Subtraindo %.2f do saldo da conta2\n\n", qtdeRetirada2);
 
-        // Chama o método debitar da conta2
         conta2.debitar(qtdeRetirada2);
 
-        // Exibe os saldos após a retirada
         System.out.printf("Saldo da Conta1: R$ %.2f\n", conta1.getSaldo());
         System.out.printf("Saldo da Conta2: R$ %.2f\n", conta2.getSaldo());
     }
