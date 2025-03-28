@@ -38,3 +38,73 @@ public class TesteLivro{
         System.out.println("Número de livros: " + Livro.getContadorLivros());
     }
 }
+EXERCICIO 2 
+public class Ponto2D {
+    private double x, y;
+    private static int contador = 0;
+
+    public Ponto2D() {
+        this.x = 0.0;
+        this.y = 0.0;
+        contador++;
+    }
+
+    public Ponto2D(double x, double y) {
+        this.x = x;
+        this.y = y;
+        contador++;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public static int getContador() {
+        return contador;
+    }
+}
+public class TestaPontos2D {
+    public static void main(String[] args) {
+        Ponto2D p1 = new Ponto2D();
+        Ponto2D p2 = new Ponto2D(3.5, 7.2);
+
+        System.out.print("Coordenadas de P1: ");
+        System.out.printf("%.2f ", p1.getX());
+        System.out.printf("%.2f\n", p1.getY());
+
+        System.out.print("Coordenadas de P2: ");
+        System.out.printf("%.2f ", p2.getX());
+        System.out.printf("%.2f\n", p2.getY());
+
+        System.out.println("Número de instâncias Ponto2D criadas: " + Ponto2D.getContador());
+    }
+}
+EXERCÍCIO 3
+O atributo cont em X é private, então ob.cont = 10; gera um erro.
+O modo correto é usando o método setCont(), que é public e permite acesso controlado ao atributo privado.
+EXERCÍCIO 4 
+public static void troca(Test ob1, Test ob2) {
+    int temp = ob1.getA();   
+    ob1.setA(ob2.getA());   
+    ob2.setA(temp);         
+}
+Antes da troca
+ob1.a = 5
+ob2.a = 10
+Depois da troca
+ob1.a = 10
+ob2.a = 5
+O método troca() não altera as referências originais (test1 e test2), mas modifica os valores dos atributos dos objetos referenciados.
+Como ob1 e ob2 dentro do método ainda apontam para os mesmos objetos que test1 e test2, as alterações feitas via setA() afetam os objetos originais.
+EXERCÍCIO 5
+Não está correto pois não é possível ter dois métodos com o mesmo nome e mesma lista de parâmetros.
+EXERCÍCIO 6
+Se todos os objetos de uma classe devem compartilhar a mesma variável, você deve declará-la como static.
+EXERCÍCIO 7
+Para que um atributo ou método só possa ser acessado por outros membros da mesma classe, você deve usar o modificador de acesso private.
+EXERCÍCIO 8
+valor
