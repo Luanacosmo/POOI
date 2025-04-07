@@ -1,0 +1,109 @@
+Exercício 1 
+class Forma2D {
+    private double largura;
+    private double altura;
+
+    public void mostraDimensoes() {
+        System.out.println("Largura e altura = " + largura + " e " + altura);
+    }
+
+    public double getLargura() {
+        return largura;
+    }
+
+    public void setLargura(double largura) {
+        this.largura = largura;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+}
+
+class Triangulo extends Forma2D {
+    private String estilo;
+
+    public double area() {
+        return (getLargura() * getAltura()) / 2;
+    }
+
+    public void mostraEstilo() {
+        System.out.println("Triângulo = " + estilo);
+    }
+
+    public String getEstilo() {
+        return estilo;
+    }
+
+    public void setEstilo(String estilo) {
+        this.estilo = estilo;
+    }
+}
+
+class Retangulo extends Forma2D {
+    public boolean ehQuadrado() {
+        return getLargura() == getAltura();
+    }
+
+    public double area() {
+        return getLargura() * getAltura();
+    }
+}
+
+public class Formas {
+    public static void main(String[] args) {
+        Triangulo t1 = new Triangulo();
+        Triangulo t2 = new Triangulo();
+        
+        t1.setLargura(4.0);
+        t1.setAltura(4.0);
+        t1.setEstilo("cheio");
+        
+        t2.setLargura(8.0);
+        t2.setAltura(12.0);
+        t2.setEstilo("contorno");
+
+        System.out.println("Informações para t1: ");
+        t1.mostraEstilo();
+        t1.mostraDimensoes();
+        System.out.println("Área = " + t1.area());
+        System.out.println();
+
+        System.out.println("Informações para t2: ");
+        t2.mostraEstilo();
+        t2.mostraDimensoes();
+        System.out.println("Área = " + t2.area());
+        System.out.println();
+
+        Retangulo r1 = new Retangulo();
+        r1.setLargura(5.0);
+        r1.setAltura(5.0);
+        
+        Retangulo r2 = new Retangulo();
+        r2.setLargura(6.0);
+        r2.setAltura(8.0);
+
+        System.out.println("Informações para r1: ");
+        r1.mostraDimensoes();
+        System.out.println("É quadrado? " + r1.ehQuadrado());
+        System.out.println("Área = " + r1.area());
+        System.out.println();
+
+        System.out.println("Informações para r2: ");
+        r2.mostraDimensoes();
+        System.out.println("É quadrado? " + r2.ehQuadrado());
+        System.out.println("Área = " + r2.area());
+    }
+}
+Exercício 2
+Ele ira imprimir Computador(), depois Notebook() e por último Código: 12345
+
+Exercício 3
+Será impresso x=8 e x=12
+O atributo i foi declarado como private para impedir o acesso direto ao estado interno da classe
+e permitindo o controle exclusivo através dos métodos. Já o método ajustar() foi definido como protected para permitir
+que apenas a própria classe e suas subclasses possam modificar o valor do atributo i.
