@@ -1,1 +1,199 @@
+Exercício 1 
+public class DeclaracaoArrayDouble {
+    public static void main(String[] args) {
+        double[] arrayCompleto;
+        arrayCompleto = new double[5];
 
+        arrayCompleto[0] = 1.1;
+        arrayCompleto[1] = 2.2;
+        arrayCompleto[2] = 3.3;
+        arrayCompleto[3] = 4.4;
+        arrayCompleto[4] = 5.5;
+
+        double[] arraySimplificado = new double[5];
+
+        double[] arrayInicializado = {10.1, 20.2, 30.3, 40.4, 50.5};
+
+        System.out.println("Array Completo:");
+        for (double num : arrayCompleto) {
+            System.out.print(num + " ");
+        }
+
+        System.out.println("\n\nArray Simplificado:");
+        for (double num : arraySimplificado) {
+            System.out.print(num + " ");
+        }
+
+        System.out.println("\n\nArray Inicializado:");
+        for (double num : arrayInicializado) {
+            System.out.print(num + " ");
+        }
+    }
+}
+Exercício 2
+public class ArrayInicializacaoDireta {
+    public static void main(String[] args) {
+        int[] numeros = {1, 2, 3, 4, 5}; 
+
+        System.out.println("Array de inteiros inicializado:");
+        for (int num : numeros) {
+            System.out.print(num + " ");
+        }
+    }
+}
+Exercício 3
+public class MediaSimples {
+    public static void main(String[] args) {
+        double[] numeros = {10.5, 20.0, 15.5, 25.0, 9.0};
+        double soma = 0;
+        
+        for(double num : numeros) {
+            soma += num;
+        }
+        
+        System.out.println("Média: " + (soma/numeros.length));
+    }
+}
+Exercício 4
+public class MinMax {
+    public static void main(String[] args) {
+        int[] nums = { 99, -10, 100, 19, 977, -562, 463, -9, 287, 49 };
+        int min, max;
+        min = max = nums[0];
+        
+        for(int num : nums) {
+            if(num < min)
+                min = num;
+            if(num > max)
+                max = num;
+        }
+        
+        System.out.println("Min e Max: " + min + " " + max);
+    }
+}
+Exercício 5 
+public class AnaliseArray {
+    public static void main(String[] args) {
+        int[] vetor = {12, 11, 9, 5, 2, 1};
+        int x = 6;
+        
+        int maiorDif = 0;
+        int posicao = 0;
+        
+        for(int i = 0; i < vetor.length - 1; i++) {
+            int diferenca = vetor[i] - vetor[i+1];
+            if(diferenca > maiorDif) {
+                maiorDif = diferenca;
+                posicao = i;
+            }
+        }
+        
+        System.out.println("Maior diferença: " + maiorDif + 
+                         " entre vetor[" + posicao + "]=" + vetor[posicao] + 
+                         " e vetor[" + (posicao+1) + "]=" + vetor[posicao+1]);
+        
+        int maiores = 0, menores = 0, iguais = 0;
+        
+        for(int num : vetor) {
+            if(num > x) {
+                maiores++;
+            } else if(num < x) {
+                menores++;
+            } else {
+                iguais++;
+            }
+        }
+        
+        System.out.println("\nResultados para X = " + x + ":");
+        System.out.println("Números maiores que X: " + maiores);
+        System.out.println("Números menores que X: " + menores);
+        System.out.println("Números iguais a X: " + iguais);
+    }
+}
+Exercício 6
+public class SomaVarargs {
+
+    public static int soma(int... numeros) {
+        int total = 0;
+        for (int num : numeros) {
+            total += num;
+        }
+        return total;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Soma 1: " + soma(1, 2, 3));
+        System.out.println("Soma 2: " + soma(10, 20, 30, 40));
+        System.out.println("Soma 3: " + soma(5));
+        System.out.println("Soma 4: " + soma());
+    }
+} 
+Exercício 7
+public class Matriz3x3 {
+    public static void main(String[] args) {
+        int[][] A = new int[3][3];
+        int valor = 0;
+        
+        for(int i = 0; i < 3; i++) {
+            for(int j = 0; j < 3; j++) {
+                A[i][j] = valor++;
+            }
+        }
+        
+        System.out.println("Matriz A 3x3:");
+        for(int i = 0; i < 3; i++) {
+            for(int j = 0; j < 3; j++) {
+                System.out.print(A[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+Exercício 8
+class Compositor {
+    private int codigo;
+    private String nome;
+
+    public Compositor() {
+    }
+
+    public Compositor(int codigo, String nome) {
+        this.codigo = codigo;
+        this.nome = nome;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+}
+
+public class TestaCompositor {
+    public static void main(String[] args) {
+        Compositor compositor1 = new Compositor(1, "Villa-Lobos");
+        
+        Compositor compositor2 = new Compositor(2, "Tom Jobim");
+        Compositor compositor3 = new Compositor(3, "Chico Buarque");
+        Compositor[] compositores = {compositor2, compositor3};
+
+        System.out.println("Compositor 1:");
+        System.out.println("Código: " + compositor1.getCodigo());
+        System.out.println("Nome: " + compositor1.getNome());
+
+        System.out.println("\nCompositores no vetor:");
+        for(Compositor c : compositores) {
+            System.out.println("Código: " + c.getCodigo() + " | Nome: " + c.getNome());
+        }
+    }
+}
