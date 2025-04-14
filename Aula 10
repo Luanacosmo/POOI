@@ -1,1 +1,85 @@
+public class Produto {
+    private String nome;
+    private double preco;
 
+    public Produto(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    public boolean ehCaro() {
+        return preco > 80.00;
+    }
+
+    public boolean ehCaro(double limite) {
+        return preco > limite;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    @Override
+    public String toString() {
+        return "Produto: " + nome + " - Preço: R$ " + String.format("%.2f", preco);
+    }
+}
+public class Livro extends Produto {
+    private String autor;
+    private int paginas;
+
+    public Livro(String nome, double preco, String autor, int paginas) {
+        super(nome, preco);
+        this.autor = autor;
+        this.paginas = paginas;
+    }
+
+    public boolean ehExtenso() {
+        return paginas > 300;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + 
+               " - Autor: " + autor + 
+               " - Páginas: " + paginas;
+    }
+
+    @Override
+    public boolean ehCaro() {
+        return getPreco() > 50.00;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public int getPaginas() {
+        return paginas;
+    }
+}
+public class ProdutoApp {
+    public static void main(String[] args) {
+        Produto produto = new Produto("Notebook", 2500.00);
+        System.out.println(produto);
+        System.out.println("É caro? " + produto.ehCaro());
+        System.out.println("É caro (limite R$ 3000)? " + produto.ehCaro(3000.00));
+        
+        System.out.println();
+        
+        Livro livro = new Livro("Dom Casmurro", 45.90, "Machado de Assis", 256);
+        System.out.println(livro);
+        System.out.println("É extenso? " + livro.ehExtenso());
+        System.out.println("É caro? " + livro.ehCaro());
+        
+        System.out.println();
+        
+        Produto outroLivro = new Livro("A Arte da Guerra", 65.00, "Sun Tzu", 128);
+        System.out.println(outroLivro);
+        System.out.println("É caro? " + outroLivro.ehCaro());
+    }
+}
