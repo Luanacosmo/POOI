@@ -1,0 +1,77 @@
+Exercício 1
+public class Exercicio1 {
+ public static void main(String args[]) {
+verificar("Hoje tem aula de POOI");
+verificar("verdade");
+verificar("aeiou");}
+
+ public static void verificar(String frase) {
+ int tam = frase.length();
+ int qtde = 0;
+System.out.println("Total caracteres string: " + frase + " = " + tam);
+ for (int i = 0; i < tam; i++) {
+ if (frase.charAt(i) == 'a' || frase.charAt(i) == 'A'
+ || frase.charAt(i) == 'e' || frase.charAt(i) == 'E'
+ || frase.charAt(i) == 'i' || frase.charAt(i) == 'I'
+ || frase.charAt(i) == 'o' || frase.charAt(i) == 'O'
+ || frase.charAt(i) == 'u' || frase.charAt(i) == 'U')
+ qtde++;
+ }
+ System.out.println("Quantidade de vogais = " + qtde);
+ } }
+Exercício 2
+public class Exercicio2 {
+    public static void main(String args[]) {
+        if (args.length < 2) {
+            System.out.println("Por favor, forneça dois argumentos de linha de comando.");
+            return;
+        }
+        
+        System.out.println("Argumento 1: " + args[0]);
+        System.out.println("Argumento 2: " + args[1]);
+        
+        compararStrings(args[0], args[1]);
+    }
+    
+    public static void compararStrings(String str1, String str2) {
+        System.out.println("\nComparação usando equals():");
+        System.out.println(str1 + " == " + str2 + "? " + str1.equals(str2));
+        
+        System.out.println("\nComparação usando equalsIgnoreCase():");
+        System.out.println(str1 + " == " + str2 + "? " + str1.equalsIgnoreCase(str2));
+    }
+}
+Exercício 3
+public class Exercicio3 {
+    public static void main(String[] args) {
+        verificaPalavra("Paralelepipedo");
+        verificaPalavra("Java");
+    }
+    
+    public static void verificaPalavra(String palavra) {
+        if (palavra.length() < 8) {
+            System.out.println("Erro: A palavra '" + palavra + "' deve ter no mínimo 8 caracteres.");
+            return;
+        }
+        
+        String novaPalavra = palavra.substring(0, 2) + palavra.substring(palavra.length() - 2);
+        System.out.println("Palavra original: " + palavra);
+        System.out.println("Nova palavra formada: " + novaPalavra);
+    }
+}
+Exercício 4
+public class Exercicio4 {
+    public static void main(String[] args) {
+        System.out.println(processa(null));         
+        System.out.println(processa(""));          
+        System.out.println(processa("Hello"));      
+        System.out.println(processa("Java Rocks")); 
+    }
+    
+    public static String processa(String s) {
+        if (s == null) {
+            return null;
+        }
+        return s.toUpperCase();
+    }
+}
