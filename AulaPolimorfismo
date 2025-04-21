@@ -1,1 +1,105 @@
-
+Exercício I. 
+As classes Oficina e UsaOficina demonstram o uso de polimorfismo. A classe Oficina gera veículos aleatórios (Automóvel ou Bicicleta) 
+com o método proximo() e os revisa com o método revisar(), que chama verificar(), ajustar() e limpar() de forma polimórfica.
+Já a classe UsaOficina cria uma oficina e, em um loop, gera e revisa quatro veículos. O polimorfismo permite que os métodos corretos sejam 
+chamados de acordo com o tipo real do objeto (Automóvel ou Bicicleta), mesmo sendo tratados como do tipo base Veiculo.
+Exercício II.
+class Animal {
+    public void emitirSom() {
+        System.out.println("Nha Nha Nha");
+    }
+}
+class Cachorro extends Animal {
+    @Override
+    public void emitirSom() {
+        System.out.println("Au Au Au");
+    }
+}
+class Gato extends Animal {
+    @Override
+    public void emitirSom() {
+        System.out.println("Miau Miau Miau");
+    }
+}
+class Preguica extends Animal {
+    @Override
+    public void emitirSom() {
+        System.out.println("AAAAAAHHHHZZZZ");
+    }
+}
+class TestaAnimais {
+    public static void main(String[] args) {
+        Animal[] animais = new Animal[4];
+        animais[0] = new Animal();
+        animais[1] = new Cachorro();
+        animais[2] = new Gato();
+        animais[3] = new Preguica();
+        
+        for (Animal animal : animais) {
+            animal.emitirSom(); 
+        }
+    }
+}
+Exercício III.
+abstract class Figura {
+    public abstract double area(double raio1);
+}
+class Quadrado extends Figura {
+    @Override
+    public double area(double lado) {
+        return lado * lado;
+    }
+}
+class Circulo extends Figura {
+    @Override
+    public double area(double raio) {
+        return Math.PI * raio * raio;
+    }
+}
+class TestaFigura {
+    public static void main(String[] args) {
+        Figura[] figuras = new Figura[2];
+        figuras[0] = new Quadrado();
+        figuras[1] = new Circulo();
+        
+        for (Figura figura : figuras) {
+            System.out.println("Área: " + figura.area(5.0)); // Polimorfismo aqui
+        }
+    }
+}
+Exercício IV.
+class Cliente {
+    protected String nome;
+    protected double saldo;
+    protected double limite;
+    
+    public Cliente(String nome, double saldo, double limite) {
+        this.nome = nome;
+        this.saldo = saldo;
+        this.limite = limite;
+    }
+    
+    @Override
+    public String toString() {
+        return "Cliente [nome=" + nome + ", saldo=" + saldo + ", limite=" + limite + "]";
+    }
+}
+class ClienteEspecial extends Cliente {
+    public ClienteEspecial(String nome, double saldo, double limite) {
+        super(nome, saldo, limite);
+    }
+    
+    @Override
+    public String toString() {
+        return "ClienteEspecial [nome=" + nome + ", saldo=" + saldo + ", limite=" + limite + "]";
+    }
+}
+class TestaCliente {
+    public static void main(String[] args) {
+        Cliente cliente1 = new Cliente("João", 1000.0, 500.0);
+        Cliente cliente2 = new ClienteEspecial("Maria", 2000.0, 1000.0);
+        
+        System.out.println(cliente1.toString()); // Polimorfismo aqui
+        System.out.println(cliente2.toString()); // Polimorfismo aqui - chama toString() de ClienteEspecial
+    }
+}
