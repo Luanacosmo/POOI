@@ -1,0 +1,294 @@
+Ex1 
+public class Dispositivo {
+    private int codigo;
+    private String nome;
+
+    Dispositivo(int codigo, String nome) {
+        this.codigo = codigo;
+        this.nome = nome;
+    }
+
+    public void usar(String nomeUsuario) {
+        System.out.println(nomeUsuario + " está usando o dispositivo " + nome);
+    }
+}
+public class Usuario {
+    private String nome;
+    private int matricula;
+    private Dispositivo dispositivo;
+
+    Usuario(int matricula, String nome){
+        this.matricula = matricula;
+        this.nome = nome;
+    }
+
+    public void setDispositivo(Dispositivo dispositivo) {
+        this.dispositivo = dispositivo;
+    }
+
+    public void trabalhar() {
+        dispositivo.usar(nome);
+    }
+}
+public class AppTrabalho {
+    public static void main(String[] args) {
+        Dispositivo dispositivo1 = new Dispositivo(1, "Notebook");
+        Dispositivo dispositivo2 = new Dispositivo(2, "Desktop");
+
+        Usuario usuario1 = new Usuario(1, "Theodoro");
+        Usuario usuario2 = new Usuario(2, "Ana");
+
+        usuario1.setDispositivo(dispositivo1);
+        usuario1.trabalhar();
+        usuario2.setDispositivo(dispositivo2);
+        usuario2.trabalhar();
+    }
+}
+ex2
+public class Bancos {
+    private String fabricante;
+
+    public Bancos(String fabricante) {
+        this.fabricante = fabricante;
+    }
+
+    public String getFabricante() {
+        return fabricante;
+    }
+}
+public class Carro {
+    private String marca;
+    private String modelo;
+    private String fabricante;
+    private Motor motor;
+    private Bancos bancos; // NOVO atributo
+
+    public Carro(String marca, String modelo, String fabricante, Motor motor, Bancos bancos) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.fabricante = fabricante;
+        this.motor = motor;
+        this.bancos = bancos;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public String getFabricante() {
+        return fabricante;
+    }
+
+    public String getTipoMotor() {
+        return motor.getTipo();
+    }
+
+    public String getFabricanteBancos() {
+        return bancos.getFabricante();
+    }
+}
+public class AppCarro {
+    public static void main(String[] args) {
+        Motor m1 = new Motor("3.8L V6");
+        Bancos b1 = new Bancos("Recaro");
+
+        Carro c1 = new Carro("Mustang", "Conversível", "Ford", m1, b1);
+
+        Motor m2 = new Motor("COOPER");
+        Bancos b2 = new Bancos("BMW Bank");
+
+        Carro c2 = new Carro("MINI", "COOPER SE", "BMW", m2, b2);
+
+        Motor m3 = new Motor("Mercedes-Benz");
+        Bancos b3 = new Bancos("Mercedes Comfort");
+
+        Carro c3 = new Carro("Mercedes-EQ", "EQA 250", "Mercedes-Benz", m3, b3);
+
+        System.out.println(c1.getFabricante() + " " +
+            c1.getMarca() + " " +
+            c1.getModelo() + " " +
+            c1.getTipoMotor() + " Bancos: " + c1.getFabricanteBancos());
+
+        System.out.println(c2.getFabricante() + " " +
+            c2.getMarca() + " " +
+            c2.getModelo() + " " +
+            c2.getTipoMotor() + " Bancos: " + c2.getFabricanteBancos());
+
+        System.out.println(c3.getFabricante() + " " +
+            c3.getMarca() + " " +
+            c3.getModelo() + " " +
+            c3.getTipoMotor() + " Bancos: " + c3.getFabricanteBancos());
+    }
+
+ ex3
+public class Motor {
+    private String tipo;
+
+    public Motor(String tipo) {
+        this.tipo = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Motor: " + tipo;
+    }
+}
+public class Bancos {
+    private String fabricante;
+
+    public Bancos(String fabricante) {
+        this.fabricante = fabricante;
+    }
+
+    @Override
+    public String toString() {
+        return "Bancos Fabricante: " + fabricante;
+    }
+}
+public class Carro {
+    private String marca;
+    private String modelo;
+    private String fabricante;
+    private Motor motor;
+    private Bancos bancos;
+
+    public Carro(String marca, String modelo, String fabricante, Motor motor, Bancos bancos) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.fabricante = fabricante;
+        this.motor = motor;
+        this.bancos = bancos;
+    }
+
+    @Override
+    public String toString() {
+        return "Fabricante: " + fabricante + ", Marca: " + marca +
+               ", Modelo: " + modelo + ", " + motor.toString() + ", " + bancos.toString();
+    }
+}
+public class AppCarro {
+    public static void main(String[] args) {
+        Motor m1 = new Motor("3.8L V6");
+        Bancos b1 = new Bancos("Recaro");
+        Carro c1 = new Carro("Mustang", "Conversível", "Ford", m1, b1);
+
+        Motor m2 = new Motor("COOPER");
+        Bancos b2 = new Bancos("BMW Bank");
+        Carro c2 = new Carro("MINI", "COOPER SE", "BMW", m2, b2);
+
+        Motor m3 = new Motor("Mercedes-Benz");
+        Bancos b3 = new Bancos("Mercedes Comfort");
+        Carro c3 = new Carro("Mercedes-EQ", "EQA 250", "Mercedes-Benz", m3, b3);
+
+        System.out.println(c1);
+        System.out.println(c2);
+        System.out.println(c3);
+    }
+}
+ex4
+public class Liquidificador {
+    private boolean ligado = false;
+
+    public void ligar() {
+        ligado = true;
+    }
+
+    public void desligar() {
+        ligado = false;
+    }
+
+    public boolean isLigado() {
+        return ligado;
+    }
+
+    public String observar() {
+        return "Liquidificador " + (ligado ? "ligado" : "desligado");
+    }
+}
+public class Geladeira {
+    private boolean ligado = false;
+
+    public void ligar() {
+        ligado = true;
+    }
+
+    public void desligar() {
+        ligado = false;
+    }
+
+    public boolean isLigado() {
+        return ligado;
+    }
+
+    public String observar() {
+        return "Geladeira " + (ligado ? "ligada" : "desligada");
+    }
+}
+public class Microondas {
+    private boolean ligado = false;
+
+    public void ligar() {
+        ligado = true;
+    }
+
+    public void desligar() {
+        ligado = false;
+    }
+
+    public boolean isLigado() {
+        return ligado;
+    }
+
+    public String observar() {
+        return "Microondas " + (ligado ? "ligado" : "desligado");
+    }
+}
+public class Cozinha {
+    private Geladeira geladeira;
+    private Liquidificador liquidificador;
+    private Microondas microondas;
+
+    public Cozinha() {
+        geladeira = new Geladeira();
+        liquidificador = new Liquidificador();
+        microondas = new Microondas();
+    }
+
+    public void ligar() {
+        geladeira.ligar();
+        liquidificador.ligar();
+        microondas.ligar();
+    }
+
+    public void desligar() {
+        geladeira.desligar();
+        liquidificador.desligar();
+        microondas.desligar();
+    }
+
+    public void observar() {
+        System.out.println(geladeira.observar());
+        System.out.println(liquidificador.observar());
+        System.out.println(microondas.observar());
+    }
+}
+public class AppCozinha {
+    public static void main(String[] args) {
+        Cozinha cozinha = new Cozinha();
+
+        System.out.println("Estado inicial:");
+        cozinha.observar();
+
+        System.out.println("\nLigando tudo...");
+        cozinha.ligar();
+        cozinha.observar();
+
+        System.out.println("\nDesligando tudo...");
+        cozinha.desligar();
+        cozinha.observar();
+    }
+}
