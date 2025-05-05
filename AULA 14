@@ -1,0 +1,42 @@
+public enum Luz {
+    VERMELHO,
+    AMBAR,
+    VERDE
+}
+public class Palestra {
+    private Luz estadoLuz;
+
+    public Palestra(Luz estadoLuz) {
+        this.estadoLuz = estadoLuz;
+    }
+
+    public void acessa() {
+        switch (estadoLuz) {
+            case VERMELHO:
+                System.out.println("palestra indisponível");
+                break;
+            case AMBAR:
+                System.out.println("palestra sendo liberada");
+                break;
+            case VERDE:
+                System.out.println("palestra disponível");
+                break;
+        }
+    }
+}
+public class TestadoraPalestra {
+    public static void main(String[] args) {
+        Palestra p1 = new Palestra(Luz.VERMELHO);
+        Palestra p2 = new Palestra(Luz.AMBAR);
+        Palestra p3 = new Palestra(Luz.VERDE);
+
+        System.out.println("Testando palestra com luz VERMELHA:");
+        p1.acessa();
+
+        System.out.println("\nTestando palestra com luz AMBAR:");
+        p2.acessa();
+
+        System.out.println("\nTestando palestra com luz VERDE:");
+        p3.acessa();
+    }
+}
