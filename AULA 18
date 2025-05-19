@@ -1,0 +1,195 @@
+EXERCÍCIO 1 
+public interface Instrumento {
+    void tocar();
+    void nome();
+    void afinar();
+}
+public class Sopro implements Instrumento {
+    @Override
+    public void tocar() {
+        System.out.println("Tocando instrumento sopro");
+    }
+
+    @Override
+    public void nome() {
+        System.out.println("Sopro");
+    }
+
+    @Override
+    public void afinar() {
+        System.out.println("Afinando instrumento sopro");
+    }
+}
+public class Percussao implements Instrumento {
+    @Override
+    public void tocar() {
+        System.out.println("Tocando instrumento percussão");
+    }
+
+    @Override
+    public void nome() {
+        System.out.println("Percussão");
+    }
+
+    @Override
+    public void afinar() {
+        System.out.println("Afinando instrumento percussão");
+    }
+}
+public class Corda implements Instrumento {
+    @Override
+    public void tocar() {
+        System.out.println("Tocando instrumento de corda");
+    }
+
+    @Override
+    public void nome() {
+        System.out.println("Corda");
+    }
+
+    @Override
+    public void afinar() {
+        System.out.println("Afinando instrumento de corda");
+    }
+}
+public class SoproMetal extends Sopro {
+    @Override
+    public void tocar() {
+        System.out.println("Tocando instrumento sopro metal");
+    }
+
+    @Override
+    public void nome() {
+        System.out.println("SoproMetal");
+    }
+
+    @Override
+    public void afinar() {
+        System.out.println("Afinando instrumento sopro metal");
+    }
+}
+public class SoproMadeira extends Sopro {
+    @Override
+    public void tocar() {
+        System.out.println("Tocando instrumento sopro madeira");
+    }
+
+    @Override
+    public void nome() {
+        System.out.println("SoproMadeira");
+    }
+
+    @Override
+    public void afinar() {
+        System.out.println("Afinando instrumento sopro madeira");
+    }
+}
+public class TesteInstrumentos {
+
+    public static void sinfonia(Instrumento[] instrumentos) {
+        for (Instrumento i : instrumentos) {
+            i.nome();
+            i.tocar();
+            i.afinar();
+            System.out.println(); // Separação visual
+        }
+    }
+
+    public static void main(String[] args) {
+        Instrumento[] instrumentos = new Instrumento[5];
+        instrumentos[0] = new Sopro();
+        instrumentos[1] = new Percussao();
+        instrumentos[2] = new Corda();
+        instrumentos[3] = new SoproMetal();
+        instrumentos[4] = new SoproMadeira();
+
+        sinfonia(instrumentos);
+    }
+}
+EXERCÍCIO 2
+public interface Falante {
+    void falar();
+    String seuIdioma();
+    void identificarSe();
+}
+public abstract class Pessoa implements Falante {
+    private String nome;
+
+    public Pessoa(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+}
+public class Estudante extends Pessoa {
+
+    public Estudante(String nome) {
+        super(nome);
+    }
+
+    @Override
+    public void falar() {
+        System.out.println("Olá, eu sou estudante de Ciência da Computação!");
+    }
+
+    @Override
+    public String seuIdioma() {
+        return "Português";
+    }
+
+    @Override
+    public void identificarSe() {
+        System.out.println("Eu sou estudante: " + getNome());
+    }
+}
+public class Robo implements Falante {
+
+    @Override
+    public void falar() {
+        System.out.println("Olá, Robo!");
+    }
+
+    @Override
+    public String seuIdioma() {
+        return "Binário";
+    }
+
+    @Override
+    public void identificarSe() {
+        System.out.println("Eu sou um Robo.");
+    }
+
+    public void reboot() {
+        System.out.println("Reiniciando o sistema...");
+    }
+}
+public class Entrevistador {
+
+    public void entrevistar(Falante f) {
+        if (f instanceof Estudante) {
+            System.out.println("Olá, Estudante!");
+        } else if (f instanceof Robo) {
+            System.out.println("Olá, Robo!");
+            Robo r = (Robo) f;
+            r.reboot();
+        }
+
+        f.identificarSe();
+        String idioma = f.seuIdioma();
+        System.out.println("Vou entrevistar você em " + idioma + "!");
+    }
+}
+public class TestaFalantes {
+    public static void main(String[] args) {
+        Falante f1 = new Estudante("Manoel");
+        Falante f2 = new Robo();
+
+        Entrevistador e = new Entrevistador();
+
+        e.entrevistar(f1);
+        System.out.println();
+        e.entrevistar(f2);
+    }
+}
