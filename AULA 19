@@ -1,0 +1,33 @@
+EX 1
+A classe Throwable é a que fica no topo da hierarquia de exceções em Java.
+
+EX 2
+A classe Throwable é a que fica no topo da hierarquia de exceções em Java.
+
+EX 3
+O catch captura e trata a exceção lançada no bloco try. Após sua execução, o programa continua normalmente após o bloco catch (ou finally, se houver).
+
+EX 4
+Se não for capturada, a exceção é lançada para a JVM, que pode encerrar o programa e exibir uma mensagem de erro (stack trace).
+
+EX 5 
+O programa deve capturar a exceção com um bloco catch e tratá-la adequadamente para evitar que o programa seja encerrado inesperadamente.
+
+EX 6
+O bloco try envolve o código que pode lançar exceções, o catch trata a exceção, se ela ocorrer e o finally é executado sempre, com ou sem exceção, e geralmente é usado para liberar recursos.
+
+EX 7 
+O catch deve vir depois de um bloco try.
+
+EX 8
+public class Exercicio2 {
+    public static void main(String[] args) {
+        int[] vetor = new int[] { 2, 4, 6, 8, 10, 12 };
+        try {
+            for (int i = 0; i < 12; i++)
+                System.out.println(vetor[i]);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Fim do vetor!");
+        }
+    }
+}
