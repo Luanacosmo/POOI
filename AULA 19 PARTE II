@@ -1,0 +1,52 @@
+EX 1
+Sim. A cláusula catch de uma superclasse captura também exceções de suas subclasses.
+
+EX 2
+Ela é propagada para o bloco try externo, que pode capturá-la.
+
+EX 3
+O throw é usado para lançar uma exceção manualmente.
+
+EX 4
+Sim, lança objetos que são instâncias de classes que herdam de Throwable.
+
+EX 5
+Sim. Ela pode ser relançada com throw dentro do bloco catch.
+
+EX 6
+Se a() lançar exceção: executa as linhas 1, 2, 4, 5, 6, se b() lançar exceção: executa as linhas 7, 8, 10, 11, 12. Cada bloco trata sua própria exceção separadamente.
+
+EX 7
+Se a exceção ocorrer em a(), executa as linhas 1, 2, 5, 6, 7. O método b() não será executado.
+
+EX 8
+Verdadeiro. O bloco finally sempre é executado após o try/catch, independentemente de ocorrer ou não uma exceção, exceto se o programa for finalizado com System.exit().
+
+EX 9
+Exception e Error.
+
+EX 10
+Não. Error representa problemas graves que geralmente não podem ser tratados pelo programa, como erros de sistema ou falta de memória.
+
+EX 11
+Não, o catch mais específico (InputMismatchException) deve vir antes do mais genérico (Exception). Caso contrário, o compilador gera erro.
+
+EX 12
+public class ParImpar {
+    public static void main (String args[]) {
+        int num;
+        try {
+            num = Integer.parseInt(args[0]);
+            if ((num % 2) == 0)
+                System.out.println("Número par");
+            else
+                System.out.println("Número impar");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Não foi fornecido um argumento.");
+        } catch (NumberFormatException e) {
+            System.out.println("O argumento fornecido não é um número válido.");
+        }
+    }
+}
+
+
