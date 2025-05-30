@@ -1,0 +1,80 @@
+EX 1
+public class ValorNegativoException extends Exception {
+    private double valor;
+
+    public ValorNegativoException(double valor) {
+        this.valor = valor;
+    }
+
+    @Override
+    public String toString() {
+        return "Erro: não é possível realizar uma operação com valor negativo (R$ " + valor + "). " +
+               "Operações de saque ou depósito devem ser com valores positivos.";
+    }
+}
+public class ContaCorrente {
+    private double saldo;
+
+    protected double getTaxaOperacao() {
+        return 0.05;
+    }
+
+    public void depositar(double quantia) throws ValorNegativoException {
+        if (quantia < 0) throw new ValorNegativoException(quantia);
+        saldo += quantia;
+    }
+
+    public void sacar(double quantia) throws ValorNegativoException, SaldoInsuficienteException {
+        if (quantia < 0) throw new ValorNegativoException(quantia);
+        quantia += getTaxaOperacao() * quantia;
+        if (quantia > saldo) throw new SaldoInsuficienteException(quantia, saldo);
+        saldo -= quantia;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+}
+public class SaldoInsuficienteException extends Exception {
+    private double valor;
+    private double saldo;
+
+    public SaldoInsuficienteException(double valor, double saldo) {
+        this.valor = valor;
+        this.saldo = saldo;
+    }
+
+    @Override
+    public String toString() {
+        return "O seu saldo (R$ " + saldo + ") é insuficiente para a quantia que " +
+               "deseja sacar (incluindo a taxa de operação): R$ " + valor;
+    }
+}
+public class Exercicio2App {
+    public static void main(String[] args) {
+        ContaCorrente conta = new ContaCorrente();
+
+        try {
+            conta.depositar(100);
+            conta.depositar(-50);
+        } catch (ValorNegativoException e) {
+            System.out.println("Exceção encontrada: " + e);
+        }
+
+        try {
+            conta.sacar(70);
+            conta.sacar(50);
+        } catch (ValorNegativoException | SaldoInsuficienteException e) {
+            System.out.println("Exceção encontrada: " + e);
+        }
+
+        System.out.println("Saldo final: R$ " + conta.getSaldo());
+    }
+}
+EX 2 
+java.lang.ArrayIndexOutOfBoundsException: Index 7 out of bounds for length 4
+
+Rastreamento da pilha obtido de exception.getStackTrace():
+Classe          Arquivo                 Linha   Metodo
+GeraExcecao     GeraExcecao.java        6       geraException
+Exercicio2      Exercicio2.java         5       main
