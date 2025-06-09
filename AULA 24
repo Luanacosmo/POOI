@@ -1,0 +1,52 @@
+*Classe Pastel*
+
+public class Pastel {
+    private String descricao;
+    private double preco;
+
+    public Pastel(String descricao, double preco) {
+        this.preco = preco;
+        this.descricao = descricao;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public String toString() {
+        return descricao + " R$" + preco;
+    }
+}
+
+*Classe Pastelaria*
+
+import java.util.ArrayList;
+
+
+public class Pastelaria {
+    public static void main(String[] args) {
+        ArrayList<Pastel> pasteis = new ArrayList<>();
+        pasteis.add(new Pastel("Carne", 15.00));
+        pasteis.add(new Pastel("Queijo", 10.00));
+        pasteis.add(new Pastel("Pizza", 12.00));
+
+        System.out.println(pasteis);
+        pasteis.get(0).setDescricao("Carne com Queijo");
+        pasteis.remove(1);
+
+        System.out.println("Cardapio atualizado: ");
+        System.out.println(pasteis);
+    }
+}
